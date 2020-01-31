@@ -3,7 +3,7 @@ import React from 'react'
 export default function Highscores() {
     return (
         <>
-            <h1>HIgh scores</h1>
+            <h1>High scores</h1>
         </>
     )
 }
