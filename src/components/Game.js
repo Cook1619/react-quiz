@@ -40,7 +40,7 @@ export default class Game extends Component {
             <>
                 {this.state.loading && <div id="loader"></div>}
                 {!this.state.loading && this.state.currentQuestion && (
-                    <Question question={this.state.currentQuestion} />
+                    <Question question={this.state.currentQuestion} changeQuestion={this.changeQuestion}/>
                 )}
 
             </>
