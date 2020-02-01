@@ -1,11 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-export const ProgressBar = (max, current) => {
-
-    const width = (current/max) * 100
+export default function ProgressBar({ max, current }) {
+    const width = (current / max) * 100;
     return (
         <div id="progressBar">
-            <div id="progessBarFull" style={{width: `${width}%`}}></div>
+            <div id="progressBarFull" style={{ width: `${width}%` }}></div>
         </div>
-    )
+    );
 }
