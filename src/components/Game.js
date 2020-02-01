@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Question from './Question'
+import HUD from './HUD';
 import { loadQuestions } from '../helpers/QuestionsHelper';
 
 export default class Game extends Component {
@@ -9,7 +10,8 @@ export default class Game extends Component {
             questions: null,
             currentQuestion: null,
             loading: true,
-            score: 0
+            score: 0,
+            questionNumber: 0
         };
     }
     async componentDidMount() {
@@ -34,20 +36,24 @@ export default class Game extends Component {
         const remainingQuestions = [...this.state.questions];
         remainingQuestions.splice(randomQuestionIndex, 1);
         //update state to reflect these questions
-        this.setState((prevState) => ({ 
-                questions: remainingQuestions, 
-                currentQuestion, 
-                loading: false,
-                score: prevState.score += bonus}))
+        this.setState((prevState) => ({
+            questions: remainingQuestions,
+            currentQuestion,
+            loading: false,
+            score: (prevState.score += bonus),
+            questionNumber: prevState.questionNumber + 1
+        }))
     }
     render() {
         return (
             <>
                 {this.state.loading && <div id="loader"></div>}
                 {!this.state.loading && this.state.currentQuestion && (
-                    <Question question={this.state.currentQuestion} changeQuestion={this.changeQuestion}/>
+                    <div>
+                        <HUD score={this.state.score} questionNumber={this.state.questionNumber} />
+                        <Question question={this.state.currentQuestion} changeQuestion={this.changeQuestion} />
+                    </div>
                 )}
-
             </>
         )
     }
