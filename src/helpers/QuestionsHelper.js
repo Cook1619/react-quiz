@@ -1,15 +1,21 @@
-export const loadQuestions = async (amount = 10, category = 9, difficulty = 'easy', type = 'multiple') => {
-    const url = `https://opentdb.com/api.php?amount=1${amount}&category=${category}&difficulty=${difficulty}&type=${type}`
+export const loadQuestions = async (
+    amount = 10,
+    category = 9,
+    difficulty = 'easy',
+    type = 'multiple'
+) => {
+    const url = `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}`;
+
     try {
         const res = await fetch(url);
         const { results } = await res.json();
         return convertQuestionsFromAPI(results);
     } catch (err) {
-        console.log(err)
+        console.error(err);
     }
 };
 
-const convertQuestionsFromAPI = rawQuestions => {
+const convertQuestionsFromAPI = (rawQuestions) => {
     return rawQuestions.map((loadedQuestion) => {
         const formattedQuestion = {
             question: loadedQuestion.question,
@@ -17,7 +23,13 @@ const convertQuestionsFromAPI = rawQuestions => {
         };
 
         formattedQuestion.answer = Math.floor(Math.random() * 4);
-        formattedQuestion.answerChoices.splice(formattedQuestion.answer, 0, loadedQuestion.correct_answer)
+
+        formattedQuestion.answerChoices.splice(
+            formattedQuestion.answer,
+            0,
+            loadedQuestion.correct_answer
+        );
+
         return formattedQuestion;
     });
-}
+};
