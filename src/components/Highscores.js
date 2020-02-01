@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useFirebase } from './Firebase/FirebaseContext';
 
 export default function HighScores() {
@@ -42,6 +43,9 @@ export default function HighScores() {
                             </li>
                         ))}
                     </div>
+                    <Link to="/" className="btn">
+                        Home Page
+                    </Link>
                 </>
             )}
         </>
