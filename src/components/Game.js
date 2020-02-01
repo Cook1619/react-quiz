@@ -15,13 +15,25 @@ export default class Game extends Component {
         try {
             const questions = await loadQuestions();
             this.setState({
-                questions,
-                currentQuestion: questions[0],
-                loading: false
+                questions
+            }, () => {
+                this.changeQuestion();
             });
         } catch (err) {
             console.log(err)
         }
+    }
+
+    changeQuestion = () => {
+        //get random index of a question
+        const randomQuestionIndex = Math.floor(Math.random() * this.state.questions.length);
+        //set current question to the question at that random index
+        const currentQuestion = this.state.questions[randomQuestionIndex]
+        //remove that questions from question array
+        const remainingQuestions = [...this.state.questions];
+        remainingQuestions.splice(randomQuestionIndex, 1);
+        //update state to reflect these questions
+        this.setState({ questions: remainingQuestions, currentQuestion, loading: false })
     }
     render() {
         return (
