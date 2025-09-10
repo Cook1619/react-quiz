@@ -1,198 +1,93 @@
-:root {
-  font-size: 62.5%;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-* {
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #333;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-body {
-  background-color: #ecf5ff;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  margin-bottom: 1rem;
-}
-
-h1 {
-  font-size: 5.4rem;
-  color: #56a5eb;
-  margin-bottom: 5rem;
-}
-
-h2 {
-  font-size: 4.2rem;
-  margin-bottom: 4rem;
-  font-weight: 700;
-}
-
-/* UTILITIES */
-
-.container {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  max-width: 80rem;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.container > * {
-  width: 100%;
-}
-
-/* BUTTONS */
-.btn {
-  font-size: 1.8rem;
-  padding: 1rem 0;
-  width: 20rem;
-  text-align: center;
-  border: 0.1rem solid #56a5eb;
-  margin-bottom: 1rem;
-  text-decoration: none;
-  color: #56a5eb;
-  background-color: white;
-}
-
-.btn:hover {
-  cursor: pointer;
-  box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
-  transform: translateY(-0.1rem);
-  transition: transform 150ms;
-}
-
-.btn[disabled]:hover {
-  cursor: not-allowed;
-  box-shadow: none;
-  transform: none;
-}
-
-/* FORMS */
-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-input {
-  margin-bottom: 1rem;
-  width: 20rem;
-  padding: 1.5rem;
-  font-size: 1.8rem;
-  border: none;
-  box-shadow: 0 0.1rem 1.4rem 0 rgba(86, 185, 235, 0.5);
-}
-
-input::placeholder {
-  color: #aaa;
-}
-
-/* GAME/QUESTION */
-
-.choice-container {
-  display: flex;
-  margin-bottom: 0.5rem;
-  width: 100%;
-  font-size: 1.8rem;
-  border: 0.1rem solid rgb(86, 165, 235, 0.25);
-  background-color: white;
-}
-
-.choice-container:hover {
-  cursor: pointer;
-  box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
-  transform: translateY(-0.1rem);
-  transition: transform 150ms;
-}
-
-.choice-prefix {
-  padding: 1.5rem 2.5rem;
-  background-color: #56a5eb;
-  color: white;
-}
-
-.choice-text {
-  padding: 1.5rem;
-  width: 100%;
-}
-
-.correct {
-  background-color: #28a745;
-}
-
-.incorrect {
-  background-color: #dc3545;
-}
-
-/* HUD */
-
-#hud {
-  display: flex;
-  justify-content: space-between;
-}
-
-.hud-prefix {
-  text-align: center;
-  font-size: 2rem;
-}
-
-.hud-main-text {
-  text-align: center;
-}
-
-#progressBar {
-  width: 20rem;
-  height: 4rem;
-  border: 0.3rem solid #56a5eb;
-  margin-top: 1.5rem;
-}
-
-#progressBarFull {
-  height: 3.4rem;
-  background-color: #56a5eb;
-  width: 0%;
-}
-
-/* LOADER */
-#loader {
-  border: 1.6rem solid white;
-  border-radius: 50%;
-  border-top: 1.6rem solid #56a5eb;
-  width: 12rem;
-  height: 12rem;
-  animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
+@layer base {
+  :root {
+    font-size: 62.5%;
   }
-  100% {
-    transform: rotate(360deg);
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
   }
 }
 
-/* HIGH SCORES */
+@layer components {
+  .container {
+    @apply w-full min-h-screen flex justify-center flex-col text-center items-center max-w-6xl mx-auto px-4 py-8;
+  }
 
-#highScoresList {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 4rem;
-}
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-lg transition-all duration-200 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
 
-.high-score {
-  font-size: 2.8rem;
-  margin-bottom: 0.5rem;
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700 focus:ring-blue-500;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-gray-800 hover:bg-gray-50 border-gray-300 focus:ring-gray-500;
+  }
+
+  .btn-success {
+    @apply bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:from-green-600 hover:to-emerald-700 focus:ring-green-500;
+  }
+
+  .btn-danger {
+    @apply bg-gradient-to-r from-red-500 to-pink-600 text-white hover:from-red-600 hover:to-pink-700 focus:ring-red-500;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-2xl p-8 backdrop-blur-sm bg-opacity-95;
+  }
+
+  .question-card {
+    @apply bg-white rounded-xl shadow-lg p-6 mb-6 border border-gray-100;
+  }
+
+  .choice-btn {
+    @apply w-full text-left p-4 rounded-lg border-2 border-gray-200 bg-white hover:border-blue-400 hover:bg-blue-50 transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+  }
+
+  .choice-btn.correct {
+    @apply border-green-500 bg-green-100 text-green-800;
+  }
+
+  .choice-btn.incorrect {
+    @apply border-red-500 bg-red-100 text-red-800;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200;
+  }
+
+  .loader {
+    @apply animate-spin rounded-full h-16 w-16 border-4 border-blue-200 border-t-blue-600;
+  }
+
+  .progress-bar {
+    @apply w-full bg-gray-200 rounded-full h-3 overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300 ease-out;
+  }
+
+  .score-display {
+    @apply text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+  }
+
+  .high-score-item {
+    @apply flex justify-between items-center p-4 bg-white rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-200;
+  }
 }

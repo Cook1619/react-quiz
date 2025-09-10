@@ -60,11 +60,16 @@ export default function Game({ history }) {
     }, [currentQuestion, questions, changeQuestion]);
 
     return (
-        <>
-            {loading && !done && <div id="loader" />}
+        <div className="container">
+            {loading && !done && (
+                <div className="flex flex-col items-center">
+                    <div className="loader mb-4"></div>
+                    <p className="text-xl text-white animate-pulse">Loading questions...</p>
+                </div>
+            )}
 
             {!loading && !done && currentQuestion && (
-                <div>
+                <div className="w-full max-w-4xl animate-fade-in">
                     <HUD score={score} questionNumber={questionNumber} />
                     <Question
                         question={currentQuestion}
@@ -74,6 +79,6 @@ export default function Game({ history }) {
             )}
 
             {done && <SaveScoreForm score={score} scoreSaved={scoreSaved} />}
-        </>
+        </div>
     );
 }
