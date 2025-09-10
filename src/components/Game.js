@@ -69,7 +69,7 @@ export default function Game({ history }) {
             )}
 
             {!loading && !done && currentQuestion && (
-                <div className="w-full max-w-4xl animate-fade-in">
+                <div className="w-full max-w-2xl animate-fade-in">
                     <HUD score={score} questionNumber={questionNumber} />
                     <Question
                         question={currentQuestion}

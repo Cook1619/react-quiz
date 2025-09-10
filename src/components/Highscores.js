@@ -11,13 +11,22 @@ export default function HighScores() {
     useEffect(() => {
         get(firebase.scores()).then((snapshot) => {
             const data = snapshot.val();
+            console.log('Firebase data:', data); // Debug log
             const sortedScores = formatScoreData(data);
             setScores(sortedScores);
             setLoading(false);
+        }).catch((error) => {
+            console.error('Error loading scores:', error);
+            setLoading(false);
+            setScores([]); // Set empty array on error
         });
     }, [firebase]);
 
     const formatScoreData = (firebaseScores) => {
+        if (!firebaseScores) {
+            return []; // Return empty array if no data
+        }
+        
         const scores = [];
 
         for (let key in firebaseScores) {

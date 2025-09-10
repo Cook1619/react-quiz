@@ -6,7 +6,12 @@ export default function Home() {
         <div className="container">
             <div className="card animate-fade-in">
                 <div className="mb-8">
-                    <h1 className="text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+                    <h1 className="text-6xl font-bold mb-4" style={{
+                        background: 'linear-gradient(to right, #2563eb, #8b5cf6)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text'
+                    }}>
                         Quiz Master
                     </h1>
                     <p className="text-xl text-gray-600 mb-8">
