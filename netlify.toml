@@ -25,4 +25,3 @@
   from = "/*"
   to = "/index.html"
   status = 200
-[Environment]::SetEnvironmentVariable("NODE_OPTIONS", "--openssl-legacy-provider", "User")
