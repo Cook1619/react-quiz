@@ -1,6 +1,6 @@
 [build]
   publish = "build"
-  command = "NODE_OPTIONS=--openssl-legacy-provider npm run build"
+  command = "npm run build"
 
 [build.environment]
   NODE_VERSION = "16.20.2"
@@ -25,3 +25,4 @@
   from = "/*"
   to = "/index.html"
   status = 200
+[Environment]::SetEnvironmentVariable("NODE_OPTIONS", "--openssl-legacy-provider", "User")
