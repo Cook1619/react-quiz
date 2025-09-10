@@ -20,14 +20,14 @@ export default function Home() {
                         className="btn btn-primary w-full text-lg py-4 animate-slide-up"
                         style={{animationDelay: '0.2s'}}
                     >
-                        🎮 Start Game
+                        <span role="img" aria-label="Game controller">🎮</span> Start Game
                     </Link>
                     <Link 
                         to="/highScores" 
                         className="btn btn-secondary w-full text-lg py-4 animate-slide-up"
                         style={{animationDelay: '0.4s'}}
                     >
-                        🏆 High Scores
+                        <span role="img" aria-label="Trophy">🏆</span> High Scores
                     </Link>
                 </div>
             </div>

@@ -43,7 +43,7 @@ export default function HighScores() {
                 <div className="card animate-fade-in">
                     <div className="text-center mb-8">
                         <h1 className="text-5xl font-bold bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent mb-4">
-                            🏆 High Scores
+                            <span role="img" aria-label="Trophy">🏆</span> High Scores
                         </h1>
                         <p className="text-gray-600 text-lg">Top 10 Quiz Masters</p>
                     </div>
@@ -77,7 +77,7 @@ export default function HighScores() {
                         to="/" 
                         className="btn btn-primary w-full text-lg py-4"
                     >
-                        🏠 Back to Home
+                        <span role="img" aria-label="Home">🏠</span> Back to Home
                     </Link>
                 </div>
             )}

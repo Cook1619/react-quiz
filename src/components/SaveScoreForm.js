@@ -28,7 +28,9 @@ export default function SaveScoreForm({ score, scoreSaved }) {
         <div className="container">
             <div className="card animate-bounce-in">
                 <div className="mb-8 text-center">
-                    <h1 className="text-5xl font-bold text-gray-800 mb-2">🎉 Game Complete!</h1>
+                    <h1 className="text-5xl font-bold text-gray-800 mb-2">
+                        <span role="img" aria-label="Celebration">🎉</span> Game Complete!
+                    </h1>
                     <p className="text-2xl text-gray-600">Your Score:</p>
                     <div className="score-display mt-4">{score}</div>
                 </div>
@@ -56,13 +58,13 @@ export default function SaveScoreForm({ score, scoreSaved }) {
                             className="btn btn-success flex-1" 
                             disabled={!username}
                         >
-                            💾 Save Score
+                            <span role="img" aria-label="Save">💾</span> Save Score
                         </button>
                         <Link 
                             to="/" 
                             className="btn btn-secondary flex-1 text-center"
                         >
-                            🏠 Go Home
+                            <span role="img" aria-label="Home">🏠</span> Go Home
                         </Link>
                     </div>
                 </form>
